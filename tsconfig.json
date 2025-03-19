@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"esModuleInterop": true,
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"jsx": "react-jsx",
+		"noEmit": true,
+		"baseUrl": ".",
+		"paths": {
+			"@utils/*": ["src/utils/*"],
+			"@routes/*": ["src/routes/*"],
+			"@middlewares/*": ["src/middlewares/*"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}

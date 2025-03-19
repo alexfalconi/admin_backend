@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id            Int      @id @default(autoincrement())
+  image         String?
+  name          String
+  user          String   @default("")
+  email         String   @unique
+  password      String
+  action_add    Boolean  @default(true)
+  action_edit   Boolean  @default(true)
+  action_delete Boolean  @default(true)
+  action_view   Boolean  @default(true)
+  active        Int      @default(1)
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now()) @updatedAt
+}
+
+model banners {
+  id         Int      @id @default(autoincrement())
+  image      String?
+  name       String   @db.VarChar(255)
+  active     Int      @default(1)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+}
+
+model news {
+  id          Int      @id @default(autoincrement())
+  image       String?
+  category_id Int?
+  category    news_categories? @relation(fields: [category_id], references: [id])
+  title       String @db.VarChar(255)
+  description String @db.Text
+  content     String @db.Text
+  active      Int      @default(1)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+}
+
+model news_categories {
+  id         Int      @id @default(autoincrement())
+  name       String 
+  active     Int      @default(1)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+  news       news[]
+}
+
+model news_gallery {
+  id         Int      @id @default(autoincrement())
+  item_id    Int
+  image      String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  @@unique([item_id, image])
+}
+
