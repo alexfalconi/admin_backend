@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
-import { uploadSingle, uploadMultiple } from "@middlewares/uploadMiddleware";
+import { uploadSingle, uploadMultiple } from "../middlewares/uploadMiddleware.ts";
 
 const prisma = new PrismaClient();
 const router = Router();

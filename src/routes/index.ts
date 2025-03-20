@@ -1,8 +1,8 @@
 import { Router } from "express";
-import dynamicRoutes from "@routes/dynamicRoutes";
-import uploadRoutes from "@routes/uploadRoutes";
-import loginRoutes from "@routes/loginRoutes";
-import userRoutes from "@routes/userRoutes";
+import dynamicRoutes from "../routes/dynamicRoutes.ts";
+import uploadRoutes from "../routes/uploadRoutes.ts";
+import loginRoutes from "../routes/loginRoutes.ts";
+import userRoutes from "../routes/userRoutes.ts";
 
 const router = Router();
 
