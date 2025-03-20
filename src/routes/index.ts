@@ -1,5 +1,5 @@
 import { Router } from "express";
-import dynamicRoutes from "../routes/dynamicRoutes.ts";
+import dynamicRoutes from "./dynamicRoutes.ts";
 import uploadRoutes from "../routes/uploadRoutes.ts";
 import loginRoutes from "../routes/loginRoutes.ts";
 import userRoutes from "../routes/userRoutes.ts";
